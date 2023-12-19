@@ -930,6 +930,87 @@ body.noscroll header.fixed {
 	font-weight: 300;
 }
 
+/* start exprience wrapper */
+
+.testamonial-wrapper {
+	padding-bottom: 50px;
+}
+
+.testamonial-single {
+	margin-bottom: 30px;
+	padding: 25px;
+	position: relative;
+}
+
+.testamonial-single::after {
+	position: absolute;
+	content: "";
+	height: 100%;
+	width: calc(100% - 3px);
+	border: 1px solid #2d303b;
+	left: 3px;
+	top: 0;
+	z-index: -1;
+	transition: .05s;
+	-webkit-transition: .05s;
+	-moz-transition: .05s;
+	-ms-transition: .05s;
+	-o-transition: .05s;
+}
+
+.testamonial-single:hover::after {
+	border-color: #3deaa4;
+}
+
+.testamonial-single .company {
+	margin-bottom: 5px;
+	position: relative;
+	font-size: 20px;
+}
+
+.testamonial-single .position-name {
+	line-height: 1.6;
+	font-size: 15px;
+}
+
+.testamonial-single .mute-text {
+	margin: 10px 0;
+	position: relative;
+	font-size: 15px;
+}
+
+.testamonial-single .mute-text::after, .testamonial-single .company::after {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 7px;
+	border: 1px solid #2d303b;
+	left: -25px;
+	top: calc(50% - 13px);
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	z-index: 2;
+	box-sizing: border-box;
+	background: #111318;
+	transition: .05s;
+	-webkit-transition: .05s;
+	-moz-transition: .05s;
+	-ms-transition: .05s;
+	-o-transition: .05s;
+}
+
+.testamonial-single:hover .mute-text::after, .testamonial-single:hover .company::after {
+	border-color: #3deaa4;
+}
+
+.testamonial-single .company-info {
+	font-size: 15px;
+	font-weight: 300;
+}
+
 /* start work wrapper */
 
 .filter-buttons {
