@@ -63,7 +63,7 @@
         margin-right: 50px;
     }
     .home-wrapper .hero-img .shape::before {
-        font-size: 100vw;
+        display: none;
     }
     .skills-wrapper .margin-on-md {
         margin-bottom: 30px;
