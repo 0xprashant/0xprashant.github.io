@@ -174,3 +174,228 @@
         display: none;
     }
 }
+
+
+.firecompass-img {
+    width: 200px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 15px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .firecompass-img {
+      width: 150px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 10px; /* Further adjust positioning */
+      right: 5px;
+    }
+  }
+
+.synack-img {
+    width: 100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 15px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .synack-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 10px; /* Further adjust positioning */
+      right: 5px;
+    }
+  }
+
+.yogosha-img {
+    width: 100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 15px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .yogosha-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 10px; /* Further adjust positioning */
+      right: 5px;
+    }
+  }
+
+.worldskills-img {
+    width:200px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top:50px;
+    right: -45px;
+}
+@media only screen and (max-width: 480px) {
+    .worldskills-img {
+      width: 200px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 50px; /* Further adjust positioning */
+      right: -45px;
+    }
+}
+
+.indiaskills-img {
+    width:150px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top:40px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .indiaskills-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 80px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.osep-img {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 60px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .osep-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 70px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.oscp-img {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 60px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .oscp-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 70px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.crte-img {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 60px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .crte-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 70px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.rastalabs-img {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .rastalabs-img {
+      width: 80px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 40px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.offshore-img {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .offshore-img {
+      width: 80px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 40px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.cybernetics-img {
+    width:140px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .cybernetics-img {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 40px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.cau-img {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+@media only screen and (max-width: 480px) {
+    .cau-img {
+      width: 80px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 65px; /* Further adjust positioning */
+      right: 5px;
+    }
+}
+
+.qst-img {
+    width:40px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 30px;
+    left: 45px;
+}
+@media only screen and (max-width: 480px) {
+    .qst-img {
+      width: 40px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 30px; /* Further adjust positioning */
+      left: 45px;
+    }
+}
+
+.blog-images {
+    width:100px; /* Default for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    top: 30px;
+    left: 45px;
+}
+@media only screen and (max-width: 480px) {
+    .blog-images {
+      width: 100px; /* Further reduce size for smaller devices */
+      height: auto;
+      top: 30px; /* Further adjust positioning */
+      left: 45px;
+    }
+}
