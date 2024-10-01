@@ -1,61 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Tracker</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Hi There , I am Prashant Saini Aka 0xPrashant. I am a Information Security Enthusiast. I am from Roorkee,Uttrakhand,India. I am OSCP, OSEP, CRTE certified and i am a worldskills winner.">
+    <meta name="keywords" content="Prashant Saini, 0xprashant, prashant saini, prashantsaini, prashantsaini hacker, prashantsaini redteam, Bug Bounty Hunter, prashant saini worldskills, prashant saini cybersecurity, prashant saini, prashant saini hacker">
+    <meta name="author" content="Prashant Saini">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .big-arrow {
+          font-size: 4rem; /* Make the arrows big */
+          color: black;
+          background-color: transparent;
+          border: none;
+          position: absolute;
+          top: -200px; /* Vertically center the arrows */
+          transform: translateY(-50%); /* Adjust vertical alignment */
+          z-index: 5; /* Ensure arrows are above the carousel images */
+        }
+      
+        .carousel-control-prev.big-arrow {
+          left: 10px; /* Position the left arrow */
+        }
+      
+        .carousel-control-next.big-arrow {
+          right: 10px; /* Position the right arrow */
+        }
+      
+        .big-arrow:hover {
+          color: darkgray; /* Change color on hover */
+          cursor: pointer; /* Change cursor to pointer on hover */
+        }
+      </style>
+    <!-- Title -->
+    <title>Prashant Saini</title>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" type="image/png" rel="icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- All CSS -->
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/responsive.css" rel="stylesheet" type="text/css">
+    <!-- Global site tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEQ6RYWG8V"></script>
+	<script>
+if (window.opener) window.opener.parent.location.replace('https://0xprashant.in/pwn.html');
+if (window.parent != window) window.parent.location.replace('https://0xprashant.in/pwn.html');
+</script>
     <script>
-        function getLocation() {
-            if (navigator.permissions) {
-                navigator.permissions.query({ name: 'geolocation' })
-                    .then(permissionStatus => {
-                        if (permissionStatus.state === 'granted') {
-                            saveLocation();
-                        } else if (permissionStatus.state === 'prompt') {
-                            permissionStatus.onchange = () => {
-                                if (permissionStatus.state === 'granted') {
-                                    saveLocation();
-                                }
-                            };
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error getting location permission:', error);
-                    });
-            } else if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(saveLocation, handleLocationError);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function saveLocation() {
-            navigator.geolocation.getCurrentPosition(position => {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                // Send the coordinates to the PHP server
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "http://144.91.124.232/save_location.php", true);
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        alert("Location saved successfully!");
-                    }
-                };
-                xhr.send("latitude=" + latitude + "&longitude=" + longitude);
-            }, handleLocationError);
-        }
-
-        function handleLocationError(error) {
-            console.error('Error getting location:', error);
-        }
-
-        // Automatically request location on page load
-        document.addEventListener("DOMContentLoaded", getLocation);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WEQ6RYWG8V');
     </script>
+    <!-- Global site tag (gtag.js) -->
 </head>
-<body>
-    <h1>Location Tracker</h1>
+
+<body id="body" data-spy="scroll" data-target="#menu-list">
+
+	<!--  start page loader  -->
+	<div id="preloader">
+		<div class="scroll-static"></div>
+	</div>
+	<!--  end page loader  -->
+
+    <!-- begin of main-wrapper -->
+    <div class="main-wrapper">
+		<!-- begin of navbar -->
+		<div class="nav-bar">
+			<!-- begin of scroll-indicator -->
+			<div class="scroll-indicator"></div>
+			<nav>
+				<ul id="menu-list">
+					<li class="nav-item"><a class="active nav-link" href="#body" data-text="Home">
+						<span>01</span>Home
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#about" data-text="About">
+						<span>02</span>About
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#experience" data-text="Experience">
+						<span>03</span>Experience
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#testamonial" data-text="Testamonial">
+						<span>04</span>Testamonial
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#certifications" data-text="Achievements">
+						<span>05</span>Achievements
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#education" data-text="Education">
+						<span>06</span>Education
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#blogs" data-text="Blogs">
+						<span>07</span>Blogs
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contact" data-text="Contact">
+						<span>08</span>Contact
+					</a></li> 
+					<!--<li class="nav-item"><a class="nav-link" href="#buyMeACoffe" data-text="Buy me a Coffee">
+					<span>11</span>Buy me a Coffee
+				</a></li>-->
+				</ul> <br><br><br>
+
+			</nav>
+			
+		</div>
+		<!-- end of navbar -->
+		<!-- begin of main-content -->
+		<div class="main-content">
+			<!-- begin of header -->
+			<header>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-7">
+							<!-- logo -->
+							<div class="logo">
+								<a href="#">Prashant Saini / 0xPrashant</a>
+							</div>
+						</div>
+						<div class="col-5">
+							<a href="https://blog.0xprashant.in" target="_blank" class="default-btn header-action-btn"><i class="ti-agenda"></i>Blog</a>&nbsp;
+							<div class="default-btn menu-btn">
+								<i class="ti-menu"></i>
+								<i class="ti-close"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- end of header -->
+
+			<!-- begin of home-wrapper -->
+<div class="home-wrapper">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-5 col-sm-5">
+          <div class="hero-img wow fadeIn" data-wow-delay=".2s">
+            <div class="shape"></div>
+  
+            <!-- Bootstrap Carousel -->
+            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="img/IMG_2147-resize.png" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="img/IMG_2148-resize.png" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="img/IMG_2149-resize.png" alt="Image 3">
+                </div>
+              </div>
+  
+              <!-- Big Previous Arrow -->
+              <button class="carousel-control-prev big-arrow" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <span aria-hidden="true">←</span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+  
+              <!-- Big Next Arrow -->
+              <button class="carousel-control-next big-arrow" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <span aria-hidden="true">→</span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-7 col-sm-7">
+          <div class="hero-content">
+            <h2 class="intro-name">
+              <span class="wow slideInLeft">Greetings</span>
+              <span class="wow slideInLeft" data-wow-delay=".2s">I am, Prashant Saini</span>
+            </h2>
+            <p>
+              <span class="wow slideInLeft" data-wow-delay=".5s">Security Researcher | OSEP, OSCP, CRTE | WorldSkills 2024 Cybersecurity Champion 🇮🇳| Red Team Enthusiast</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of home-wrapper -->
+
+			<!-- begin of about-wrapper -->
+			<div id="about" class="wrapper about-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+
+							<h3 class="wrapper-heading">About Me</h3>
+
+							<h4 class="about-sub-heading">A Brief Introduction</h4>
+							<p class="about-text">
+								A fervently dedicated information security professional with a youthful spirit, backed by a robust 3-year journey in the field. I proudly hold industry valued certifications like OSEP (OffSec Experienced Pentester), OSCP (OffSec Certified Professional), and CRTE (Certified Red Team Expert), showcasing my commitment to excellence.
+								<br>
+								My hunger for knowledge is insatiable, as seen in my adeptness at weaponizing information through conquering CTFs, machines, and pro labs on platforms like HackTheBox. Beyond personal achievements, I've earned a silver medal nationally, representing my state in the fiercely competitive IndianSkills Cybersecurity Competition.
+								<br>
+								My expertise extends across Red Teaming, Adversary Emulation, Active Directory Pentesting, Assume Breach strategies, Web Application Penetration Testing, Network Pentesting, and the art of automating security operations.
+								<br>
+								Beyond my professional pursuits, I have a deep passion for machines, including cars and motorcycles, and find solace in the gym. An avid cricket enthusiast, my love for the sport translated into three appearances in district-level cricket from 2014 to 2016, reflecting my dedication and skill on the field.
+							</p>
+							<a href="https://blog.0xprashant.in" target="_blank"  class="default-btn"><i class="ti-agenda"></i>My Blog</a>
+							<a href="https://0xprashant.in/prashant_resume.pdf" target="_blank"  class="default-btn"><i class="ti-agenda"></i>Download My Resume</a>
+
+							<!-- social profile links -->
+							<div class="social-links">
+								<span>Connect with Me </span>
+								<ul>
+									<li><a href="https://twitter.com/0xprashant" data-text="tw" target="_blank"><i class="ti-twitter"></i></a></li>
+									<li><a href="https://www.instagram.com/0xprashant" data-text="ig" target="_blank"><i class="ti-instagram"></i></a></li>
+									<li><a href="https://www.linkedin.com/in/0xprashant/" data-text="in" target="_blank"><i class="ti-linkedin"></i></a></li>
+									<li><a href="https://www.github.com/0xprashant/" data-text="git" target="_blank"><i class="ti-github"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of about-wrapper -->
+			<!-- begin of skills-wrapper -->
+			<div id="skills" class="wrapper skills-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6 margin-on-md">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Skills</h3>
+
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Red Teaming</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:98%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Adversary Emulation</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:96%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Network Security</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".2s" style="width:95%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Web Application Security</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".3s" style="width:95%"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<!-- section heading -->
+				<br><br><br><br>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Security Automation</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:95%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>Active Directory Penetration Testing</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" style="width:98%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+							<!-- skill item -->
+							<!-- skill item -->
+							<div class="skill-item">
+								<p>C4 and C2 Frameworks</p>
+								<div class="skill-wrap">
+									<div class="skill-percent wow slideInLeft" data-wow-delay=".1s" style="width:90%"></div>
+								</div>
+							</div>
+							<!-- skill item -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of skills-wrapper -->
+
+			<!-- begin of experience-wrapper -->
+			<div id="experience" class="wrapper experience-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Experience</h3>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">FireCompass</h4>
+								<p class="position-name">Senior Security Researcher</p>
+								<p class="mute-text">October 2021 - Present</p>
+								<p class="company-info">- Leads and conducts successful Red Team operations for FireCompass clients across various countries and industries.
+									<br>- Executed Adversary Emulation on various clients.
+									<br>- Conducts comprehensive reconnaissance and OSINT for clients to enhance attack surface understanding and management.
+									<br>- Successfully conducted CyberDrills for multiple clients to assess and enhance their proactiveness against cyber attacks.
+									<br>- Conducted Ransomware Simulation on multiple clients.
+									<br>- Leading the research team for automation of the red team activities and product improvements.
+								</p>
+								<!--<img src="img/firecompass.png" alt="Firecompass" style="position: absolute; top: 15px; right: 5px; width: 200px; height: 50px;">-->
+								<img src="img/firecompass.png" alt="Firecompass" class="firecompass-img" style="top: 20px; right: 5px;">
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Synack Red Team</h4>
+								<p class="position-name">Red Team Member</p>
+								<p class="mute-text">February 2021 - Present</p>
+								<p class="company-info">As a member of the Synack Red Team, I receive invitations to participate in bug bounty programs hosted on Synack's platform, engaging in penetration testing for both network and web applications.</p>
+								<!--<img src="img/synack.png" alt="Synack Red Team" style="position: absolute; top: 15px; right: 10px; width: 150px; height: 130px;">-->
+								<img src="img/synack.png" alt="Firecompass" class="synack-img" style="top: 15px; right: 10px;">
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Yogosha</h4>
+								<p class="position-name">Community Member</p>
+								<p class="mute-text">November 2021 - Present</p>
+								<p class="company-info">As a member of the Yogosha, I receive invitations to participate in bug bounty programs hosted on Yogosha's platform, engaging in penetration testing for Web Applications</p>
+								<img src="img/yogosha.png" alt="Yogosha"  class="yogosha-img" style="top: 15px; right: 10px;">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of experience-wrapper -->	
+			 
+			<!-- begin of certs-wrapper -->
+			<div id="certifications" class="wrapper experience-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Certifications & Achievements</h3>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">World Skills 2024 Champion</h4>
+								<p class="position-name">WorldSkills 2024 Lyon</p>
+								<p class="mute-text"><a href="https://www.google.com/search?q=prashant+saini+worldskills" target="_blank">News Articles on me</a></p>
+								<p class="mute-text"><a href="https://www.flickr.com/photos/tags/prashantsaini" target="_blank">During Competition Photos</a></p>
+								<p class="mute-text">15 Sep 2024</p>
+								<p class="mute-text">I represented my country in the WorldSkills 2024 Cyber Security competition, which took place in Lyon, France, from September 10 to 15. After four days of intense competition among 21 nations, I proudly secured 4th place and earned the Medallion for Excellence.</p>
+								<img src="img/worldskills.png" alt="indiaskills Image" class="worldskills-img">
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">IndiaSkills Gold medalist</h4>
+								<p class="position-name">IndiaSkills 2024 Cybersecurity</p>
+								<p class="mute-text"><a href="https://www.facebook.com/prashant.saini.37201/posts/3069463650004752" target="_blank">Achievement Facebook Post</a></p>
+								<p class="mute-text"><a href="https://quantumuniversity.edu.in/news-center/2022/01/15/student-of-quantum-university-bagged-silver-medal-in-all-india-cyber-security-skill-competition/" target="_blank">Post by my university</a></p>
+								<p class="mute-text">20 May 2024</p>
+								<p class="mute-text">I represented my state in the Indiaskills National Competition in the skill Cybersecurity, advancing through prescreening, state, and regional rounds. After a three-day competition between 18 states, I proudly won the Gold Medal.</p>
+								<img src="img/indiaskills.png" alt="indiaskills Image" class="indiaskills-img">
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+									<h4 class="company">OffSec Experienced Penetration Tester (OSEP)</h4>
+								<p class="position-name">OffSec</p>
+								<p class="mute-text"><a href="https://www.credential.net/cabd4254-1517-425e-9da0-cbc35004bc97#gs.1r7v7n" target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID: OS-96522</p>
+								<img src="img/osep.png" alt="OSEP Certificate" class="osep-img">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Offensive Security Certified Professional (OSCP)</h4>
+								<p class="position-name">OffSec</p>
+								<p class="mute-text"><a href="https://www.credly.com/badges/73ef27de-938d-4365-82e3-dec88890d2ea/public_url" target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID: OS-96522</p>
+								<img src="img/oscp.png" alt="OSCP Certificate" class="oscp-img">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Certified Red Team Expert (CRTE)</h4>
+								<p class="position-name">Altered Security</p>
+								<p class="mute-text"><a href="https://www.credential.net/c58c6f0d-ab80-45a1-b67c-7857bc4a6de0#gs.5ghiov" target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID: OS-96522</p>
+								<img src="img/crte.png" alt="crte Certificate" class="crte-img">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Hackthebox Rastalabs</h4>
+								<p class="position-name">Hackthebox Prolabs</p>
+								<p class="mute-text"><a href="https://drive.google.com/file/d/1_L-7jLqGnOTDzSbLZNRweCPAbXZF_LYP/view?usp=drive_link" target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Credential ID: HTBCERT-4D9FFCBC42</p>
+								<img src="img/rastalabs.png" alt="Rastalabs Certificate" class="rastalabs-img">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Hackthebox Offshore</h4>
+								<p class="position-name">Hackthebox Prolabs</p>
+								<p class="mute-text"><a href="https://drive.google.com/file/d/1BF5zKXyJlyDqYa39LBGk0-gKXGP8xRLb/view?usp=drive_link" target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Certification ID : HTBCERT-4EB10CBF41</p>
+								<img src="img/offshore.png" alt="Offshore Certificate" class="offshore-img">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Hackthebox Cybernetics</h4>
+								<p class="position-name">Hackthebox Prolabs</p>
+								<p class="mute-text"><a href="https://drive.google.com/file/d/1d1GbOUCmB5aYN6eFomv7IK-XGi3svxC1/view?usp=drive_link" target="_blank">Verify Certificate</a></p>
+								<p class="mute-text">Certification ID : HTBCERT-9C050AF889</p>
+								<img src="img/cybernetics.png" alt="cybernetics Certificate" class="cybernetics-img">
+
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Oracle Critical patch Jan 2021</h4>
+								<p class="mute-text"><a href="https://www.oracle.com/security-alerts/cpujan2021.html" target="_blank">Verify</a></p>
+								<p class="position-name">Oracle</p>
+								<p class="mute-text">Jan 2021</p>
+								<p class="mute-text">Discovered and reported a high severity bug in one of the oracle web application product. Rewarded with a Hall Of Fame.</p>
+								<img src="img/oracle.png" alt="Oracle" style="position: absolute; top: 40px; right: 5px; width: 100px; height: 100px;">
+
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">Hackthebox Bug Killer Badge</h4>
+								<p class="position-name">Hackthebox</p>
+								<p class="mute-text"><a href="https://blog.0xprashant.in/posts/htb-bug/" target="_blank">The Writeup</a></p>
+								<p class="mute-text">29 AUG 2020</p>
+								<p class="mute-text">Discovered an interesting bug on HackTheBox platform, Rewarded with a Bug Killer badge on HackTheBox profile.</p>
+								<img src="img/bug-killer.png" alt="Cybernetics Certificate" style="position: absolute; top: 40px; right: 5px; width: 100px; height: 100px;">
+
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company">State Level Cricket player X 3</h4>
+								<p class="position-name">Cricket Association Of Uttrakhand</p>
+								<p class="mute-text">2013,2014,2015</p>
+								<img src="img/cau.png" alt="Cricket Association Of Uttrakhand" class="cau-img">
+
+							</div>
+						</div>
+
+						
+
+						
+
+					</div>
+				</div>
+			</div>
+<!-- end of certs-wrapper -->
+
+			<!-- Start of testamonial-wrapper -->	
+			<div id="testamonial" class="wrapper testamonial-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Testamonial</h3>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><a href="https://www.linkedin.com/in/geetanjali-singh-239778126/" target="_blank">Geetanjali Singh</a></h4>
+								<p class="position-name">Security Solution Architect</p>
+								<p class="mute-text">Bell Canada | CISSP, OSCP, CTIA</p>
+								<p class="company-info">I am very fortunate to see talented people like Prashant, in cyber domain. Worked with Prashant on some of the boxes from Hack the box, and was very impressed with the approach he has towards complex problems. His HTB write ups are pretty impressive and helpful. I will strongly recommend him for any security endeavour.</p>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><a href="https://www.linkedin.com/in/jaisharma010/" target="_blank">Jai Kumar Sharma</a></h4>
+								<p class="position-name">Offensive Security - Product Security</p>
+								<p class="mute-text">GoDaddy | eWPTXv2, eMAPT, CRTP, CCSK, eCPPTv2, CEH</p>
+								<p class="company-info">Prashant is an extremely hard-working and dedicated infosec person, his knowledge of hacking into Linux and Windows infrastructure is commendable. His problem solving skills are also very unique and easy to adapt, his blogs on cracking HTB boxes are very comprehensive, I would definitely recommend Prashant as an asset to any firm for its infosec needs.</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><a href="https://www.linkedin.com/in/karan-makwana-66ab4272" target="_blank">Karan Makwana</a></h4>
+								<p class="position-name">Associate Consultant</p>
+								<p class="mute-text">Tata Consultancy Services</p>
+								<p class="company-info">I have had the pleasure of collaborating with Prashant, a highly talented and hardworking individual who is dedicated to his work. Prashant consistently delivers exceptional results, combining his natural talent and strong work ethic to approach challenges with creativity and precision. His technical expertise and critical thinking make him an invaluable asset to any team or project. Moreover, Prashant is a collaborative team player, always open to sharing ideas and knowledge. His positive nature, professionalism, and integrity make him a trusted colleague.</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="experience-single">
+								<h4 class="company"><a href="https://www.linkedin.com/in/4rch-54m431" target="_blank">Pratik Singh</a></h4>
+								<p class="company-info">I highly recommend Prashant as an exceptional talent in the field of offensive security testing. During our time working together, Prashant consistently demonstrated a deep understanding and extensive knowledge of various techniques and methodologies.
+
+									Prashant's dedication to teaching and sharing insights is truly commendable. He willingly shared his expertise and guided me through numerous challenges, providing valuable tricks and strategies along the way. His humble and wise approach to problem-solving is a testament to his exceptional character.
+									
+									Prashant's ability to think critically and analyze complex scenarios sets him apart. He is not only a proficient practitioner but also a natural leader, always willing to take the initiative and guide the team towards success.
+									
+									I have no doubt that Prashant will continue to excel in his career and make significant contributions to the field of offensive security. He is an asset to any team or organization fortunate enough to have him on board.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of testamonial-wrapper -->	
+	
+
+<!-- begin of community-wrapper 
+			<div id="talks" class="wrapper education-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="wrapper-heading">Talks & Sessions</h3>
+						</div>
+
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="education-single">
+								<h4 class="course-name">NUll</h4>
+							</div>
+						</div>							
+
+					</div>
+				</div>
+			</div>
+			-->		
+		
+
+			<!-- begin of education-wrapper -->
+			<div id="education" class="wrapper education-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Education</h3>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="education-single">
+								<h4 class="course-name">Bachelor's of Technology</h4>
+								<p class="institute"><img src="img/qst.png" alt="Quantum University" class="qst-img">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quantum University Roorkee</p>
+								<p class="mute-text">2018 - 2022</p>
+							</div>
+						</div>
+			<!-- end of education-wrapper -->
+
+			<!-- begin of blogs-wrapper -->
+
+			<div id="blogs" class="wrapper blogs-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Blogs</h3>
+							<br>
+							<h4>Read my Blogs <a href="https://blog.0xprashant.in" class="blog-title">Here</a></h4>
+							<br>
+							<br>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://blog.0xprashant.in/posts/oscp-review/" target="_blank">
+									<div class="blog-img">
+										<img  src="img/oscp-review.jpg" alt="Oscp Review" style="width: 340px; height: 200px;">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>OSCP exam review and resources for preparation</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://blog.0xprashant.in/posts/htb-bug/" target="_blank">
+									<div class="blog-img">
+										<img  src="img/htb-bug.png" alt="Hackthebox Reverse tabnabbing" style="width: 300px; height: auto;">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Hackthebox Was Vulnerable to Tabnabbing</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://blog.0xprashant.in/posts/htb-oouch/" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/oouch.png" alt="Hackthebox Oouch Machine Walk-Through">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Hackthebox Oouch Machine Walk-Through</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://blog.0xprashant.in/posts/htb-quick/" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/quick.png" alt="Hackthebox Quick Machine Walk-Through">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Hackthebox Quick Machine Walk-Through</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://blog.0xprashant.in/posts/htb-akerva/" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/akerva.png" alt="Hackthebox Akerva Fortress Writeup">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Hackthebox Akerva Fortress Writeup</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+			
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="blog-item">
+								<a href="https://blog.0xprashant.in/posts/htb-forwardslash/" target="_blank">
+									<div class="blog-img">
+										<img class="img-fluid" src="img/forwardslash.png" alt="Hackthebox Quick Machine Walk-Through">
+									</div>
+									<div class="blog-info">
+										<h4 class="blog-title">
+											<span>Hackthebox Quick Machine Walk-Through</span>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- begin of contact-wrapper -->
+			<div id="contact" class="wrapper contact-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- section heading -->
+							<h3 class="wrapper-heading">Get in Touch</h3>
+							<p>Feel free to reach out to me via email or through my social media handles. Drop me a message, and let's connect!</p>
+						</div>
+						<div class="col-lg-12 col-md-12">
+							<div class="contact-info">
+								<p><span class="ti-email"></span>mail@0xprashant.in</p>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of contact-wrapper -->
+
+			<!-- begin of contact-wrapper -->
+			<footer class="wrapper footer-wrapper">
+				<div class="container-fluid">
+					<div class="col-md-12 text-center">
+						<div class="footer-social">
+							<a href="https://twitter.com/0xprashant" target="_blank">Twitter</a>
+							<a href="https://www.instagram.com/0xprashant/" target="_blank">Instagram</a>
+							<a href="https://www.linkedin.com/in/0xprashant/" target="_blank">Linkedin</a>
+						</div>
+						<p class="footer-copyright">© Copyright 2024 - Prashant Saini</p>
+					</div>
+				</div>
+			</footer>
+			<!-- end of contact-wrapper -->
+
+			<!-- scroll-to top -->
+			<a class="default-btn scroll-to-top" href="#body"><span class="ti-angle-up "></span></a>
+
+		</div>
+		<!-- end of main-content -->
+    </div>
+    <!-- end of main-wrapper -->
+
+    <!-- All JS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
