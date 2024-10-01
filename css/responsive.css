@@ -225,18 +225,18 @@
   }
 
 .worldskills-img {
-    width:200px; /* Default for larger screens */
+    width:130px; /* Default for larger screens */
     height: auto; /* Maintain aspect ratio */
     position: absolute;
     top:50px;
-    right: -45px;
+    right: 5px;
 }
 @media only screen and (max-width: 480px) {
     .worldskills-img {
-      width: 200px; /* Further reduce size for smaller devices */
+      width: 100px; /* Further reduce size for smaller devices */
       height: auto;
       top: 50px; /* Further adjust positioning */
-      right: -45px;
+      right: 5px;
     }
 }
 
